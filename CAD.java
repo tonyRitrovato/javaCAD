@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 public class CAD extends JFrame{
 
     public CAD() {
-        setSize (500, 420);
+        setSize (1280, 720);
         setUndecorated(true);
         setLocation (50,50);
         setResizable(false); 
