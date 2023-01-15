@@ -16,19 +16,13 @@ public class CAD extends JFrame{
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
-        TitleBar t = new TitleBar();
-        t.setPreferredSize(new Dimension(TitleBar.LARGHEZZA, TitleBar.ALTEZZA));
-        add(t,c);
+        add(new TitleBar(this),c);
 
         c.gridy = 1;
-        NavBar n = new NavBar();
-        n.setPreferredSize(new Dimension(NavBar.LARGHEZZA, NavBar.ALTEZZA));
-        add(n, c);
+        add(new NavBar(), c);
 
         c.gridy = 2;
-        DrawPanel d = new DrawPanel();
-        d.setPreferredSize(new Dimension(DrawPanel.LARGHEZZA, DrawPanel.ALTEZZA));
-        add(d, c);
+        add(new DrawPanel(), c);
         setUndecorated(true);
         setLocationRelativeTo(null);
         setResizable(false); 

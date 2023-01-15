@@ -7,7 +7,7 @@ public class NavBar extends JPanel {
     public static int LARGHEZZA = 1280;
     
     public NavBar() { 
-        setBackground(new Color(255, 0,0));
-        setSize(LARGHEZZA, ALTEZZA);
+        setBackground(new Color(22, 33, 62));
+        setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
     }
 }

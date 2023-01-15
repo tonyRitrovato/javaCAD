@@ -2,7 +2,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 
-public class ExitButton extends TitleBarButton implements ActionListener, MouseListener {
+public class ExitButton extends TitleBarButton implements ActionListener {
 
     public ExitButton() {
         super();
@@ -11,22 +11,11 @@ public class ExitButton extends TitleBarButton implements ActionListener, MouseL
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawLine(5, 5, 25, 25);
-        g.drawLine(5, 25, 25, 5);
+        g.drawLine(10, 10, 20, 20);
+        g.drawLine(10, 20, 20, 10);
     }
 
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
      }
-
-    public void mouseClicked(MouseEvent e) { }
-
-    public void mousePressed(MouseEvent e) { }
-
-    public void mouseReleased(MouseEvent e) { }
-
-    public void mouseEntered(MouseEvent e) { }
-
-    public void mouseExited(MouseEvent e) { }
-    
 }
