@@ -10,7 +10,7 @@ public class TitleBar extends JPanel {
     public TitleBar() {
         setBackground(new Color(255,255,255));
         setSize(LARGHEZZA, ALTEZZA);
-        TitleBarButton exit = new TitleBarButton(getBackground(), 1);
+        ExitButton exit = new ExitButton();
         add(exit);
     }
 }
