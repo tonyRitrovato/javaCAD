@@ -7,7 +7,7 @@ public class CAD extends JFrame{
     int LARGHEZZA = 1280;
 
     public static void main(String args[]) {
-        CAD cad = new CAD();
+         new CAD();
     }
 
     public CAD() {
@@ -16,12 +16,13 @@ public class CAD extends JFrame{
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
+
         add(new TitleBar(this),c);
 
         c.gridy = 1;
         add(new NavBar(), c);
 
-        c.gridy = 2;
+        c.gridy = 200;
         add(new DrawPanel(), c);
         setUndecorated(true);
         setLocationRelativeTo(null);
