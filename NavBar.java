@@ -9,5 +9,8 @@ public class NavBar extends JPanel {
     public NavBar() { 
         setBackground(new Color(22, 33, 62));
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
+        setLayout(new FlowLayout(FlowLayout.LEFT));
+        FileMenu file = new FileMenu();
+        add(file);
     }
 }

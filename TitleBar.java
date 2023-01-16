@@ -18,7 +18,6 @@ public class TitleBar extends JPanel implements MouseMotionListener{
         IconButton icon = new IconButton(riferimento);
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        /* c.fill = GridBagConstraints.BOTH; */
         c.anchor = GridBagConstraints.EAST;
         c.weightx = 400;
         add(icon, c);

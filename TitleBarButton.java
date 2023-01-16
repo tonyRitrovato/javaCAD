@@ -4,9 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class TitleBarButton extends JButton implements MouseListener {
-
-    public static  Color COLORE = new Color(15, 52, 96);
-    public static Color HOVER = new Color(25, 62, 106); 
+   
+    private Color COLORE = new Color(15, 52, 96);
+    private Color HOVER = new Color(25, 62, 106); 
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 30;
 
