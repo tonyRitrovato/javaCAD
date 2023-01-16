@@ -14,7 +14,7 @@ public class FileMenu extends JButton implements MouseListener{
     private Color HOVER = new Color(32, 43, 72);
 
     private JPopupMenu menu = new JPopupMenu();
-    private JMenuItem opzione1 = new JMenuItem("prova");
+    private FileMenuOption opzione1 = new FileMenuOption();
 
     public FileMenu() {
 
@@ -22,10 +22,12 @@ public class FileMenu extends JButton implements MouseListener{
         setFont(f);
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
         setBackground(COLORE);
+        setHorizontalAlignment(SwingConstants.CENTER);
         setEnabled(false);
         setForeground(Color.WHITE);
         setBorderPainted(false);
         addMouseListener(this);
+        menu.setBorderPainted(false);
         menu.add(opzione1);
     }
 
