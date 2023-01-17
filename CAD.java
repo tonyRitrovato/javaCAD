@@ -3,8 +3,8 @@ import javax.swing.*;
 
 public class CAD extends JFrame{
 
-    int ALTEZZA = 720;
-    int LARGHEZZA = 1280;
+    int ALTEZZA = getHeight();
+    int LARGHEZZA = getWidth();
 
     public static void main(String args[]) {
          new CAD();
@@ -26,7 +26,9 @@ public class CAD extends JFrame{
         add(new DrawPanel(), c);
         setUndecorated(true);
         setLocationRelativeTo(null);
-        setResizable(false); 
+        //setResizable(false); 
+        setFocusable(true);
+        requestFocusInWindow();
         setVisible(true);
     }
 }

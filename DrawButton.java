@@ -43,7 +43,7 @@ public class DrawButton extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(stato == false) {
             for(DrawButton g : gruppo) {
-                if(TURN > 0 )
+                if(TURN >= 0 )
                     g.setStato(false);
                 g.repaint();
             }
