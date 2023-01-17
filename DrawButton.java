@@ -7,7 +7,6 @@ public class DrawButton extends JButton implements ActionListener {
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 30;
     public int TURN;
-    private int PREVIOUS_TURN;
     private Color COLORE = new Color(22, 33, 62);
     private Color ATTIVO = new Color(12, 23, 52);
     private boolean stato = false;
