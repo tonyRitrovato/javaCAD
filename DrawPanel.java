@@ -1,22 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-public class DrawPanel extends JPanel implements KeyListener{
+public class DrawPanel extends JPanel {
 
     public static int ALTEZZA = 660;
     public static int LARGHEZZA = 1280;
     private boolean griglia = true;
 
     public DrawPanel() {
-        setBackground(new Color(26, 26, 46));
+        setBackground(new Color(255,255,255));
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
-        addKeyListener(this);
-        setFocusable(true);
-        requestFocus();
      }
 
      public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         if(griglia == true) {
             g.setColor(new Color(200,200,200));
              for(int i = 0; i < LARGHEZZA; i += 40)
@@ -26,19 +23,11 @@ public class DrawPanel extends JPanel implements KeyListener{
         }
      }
 
-    public void keyTyped(KeyEvent e) {
-        System.out.println(e);
-        /* char key = e.getKeyChar();
-        if(key == 'p') {
-            System.out.println(key);
-        }
-            griglia = (griglia == true) ? false : true;
-        repaint(); */
+     public boolean getGriglia() {
+        return griglia;
      }
 
-    public void keyPressed(KeyEvent e) { 
-        System.out.println(e);
-    }
-
-    public void keyReleased(KeyEvent e) { }
+     public void setGriglia (boolean s) {
+        griglia = s;
+     }
 }
