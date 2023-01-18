@@ -1,4 +1,4 @@
-package NavBar;
+
 import java.awt.*;
 
 public class ThickButton extends DrawButton{

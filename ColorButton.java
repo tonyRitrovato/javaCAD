@@ -1,18 +1,19 @@
-package NavBar;
+
 import java.awt.*;
 
-public class PointButton extends DrawButton {
+public class ColorButton extends DrawButton {
 
-    public int TURN = 1;
+    public int TURN = -1;
 
-    public PointButton() {
+    public ColorButton() {
         super();
         super.TURN = this.TURN;
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.fillOval(15, 15, 3, 3);
+        g.setColor(Color.WHITE);
+        g.drawLine(5, 5, 25, 25);
     }
     
 }

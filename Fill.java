@@ -1,18 +1,18 @@
-package NavBar;
+
+
 import java.awt.*;
 
-public class RectangleButton extends DrawButton {
+public class Fill extends DrawButton {
 
-    public int TURN = 3;
+    public int TURN = -1;
 
-    public RectangleButton() {
+    public Fill() {
         super();
         super.TURN = this.TURN;
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawRect(5, 5, 20, 20);
+        g.fillOval(5, 5, 20, 20);
     }
-    
 }

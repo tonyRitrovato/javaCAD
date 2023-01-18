@@ -1,4 +1,4 @@
-package NavBar;
+
 import java.awt.*;
 
 public class LineButton extends DrawButton {

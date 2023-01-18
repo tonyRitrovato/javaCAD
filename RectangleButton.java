@@ -1,19 +1,18 @@
-package NavBar;
+
 import java.awt.*;
 
-public class CircleButton extends DrawButton {
+public class RectangleButton extends DrawButton {
 
-    public int TURN = 5;
-    
-    public CircleButton() {
+    public int TURN = 3;
+
+    public RectangleButton() {
         super();
         super.TURN = this.TURN;
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        g.drawOval(5, 5, 20, 20);
+        g.drawRect(5, 5, 20, 20);
     }
-
+    
 }
