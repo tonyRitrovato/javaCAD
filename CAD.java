@@ -1,5 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+import TitleBar.TitleBar;
+import NavBar.NavBar;
+import DrawPanel.DrawPanel;
 
 public class CAD extends JFrame{
 

@@ -1,3 +1,5 @@
+package NavBar;
+
 import java.awt.*;
 
 public class Move extends DrawButton {
