@@ -5,7 +5,7 @@ public class NavBar extends JPanel {
 
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 1280;
-    private DrawButton drawButton[] = new DrawButton[8];
+    private DrawButton drawButton[] = new DrawButton[9];
     private FileMenu file = new FileMenu();
     
     public NavBar() { 
@@ -41,5 +41,6 @@ public class NavBar extends JPanel {
         drawButton[5] = new CircleButton();
         drawButton[6] = new Fill();
         drawButton[7] = new ColorButton();
+        drawButton[8] = new ThickButton();
     }
 }

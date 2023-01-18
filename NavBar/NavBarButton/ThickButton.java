@@ -1,18 +1,18 @@
 import java.awt.*;
 
-public class ColorButton extends DrawButton {
+public class ThickButton extends DrawButton{
 
+    
     public int TURN = -1;
 
-    public ColorButton() {
+    public ThickButton() {
         super();
         super.TURN = this.TURN;
     }
-
+    
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.WHITE);
-        g.drawLine(5, 5, 25, 25);
+        g.setColor(Color.WHITE);    
+        g.drawLine(5, 15, 25, 15);   
     }
-    
 }
