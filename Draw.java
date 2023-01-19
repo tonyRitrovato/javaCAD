@@ -1,31 +1,26 @@
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
 
-public class Draw implements MouseMotionListener {
+public class Draw {
 
-    private Point p;
-    private Point pf;
-    private JPanel drawPanel;
-    private Color colore = new Color(0,0,0);
+    private Color colore;
+    private BasicStroke thick;
+    private boolean fill;
+    private Point punto1;
+    private Point punto2;
 
-    public Draw(Point p,JPanel drawPanel) {
-       this.p = p;
-       this.drawPanel = drawPanel;
+    public Draw(Color colore, BasicStroke thick, Point punto) {
+        this.thick = thick;
+        this.colore = colore;
+        this.punto1 = punto;
+    }
+
+    public void setPunto2(Point p) {
+        this.punto2 = p;
     }
 
     public void paintComponent(Graphics g) {
-        System.out.println(2);
+        Graphics2D g2d = (Graphics2D) g;
         g.setColor(colore);
-       g.drawLine((int)p.getX(),(int)p.getY(),(int) pf.getX(),(int) pf.getY());
+        g2d.setStroke(thick);
     }
-
-    public void mouseDragged(MouseEvent e) {
-        System.out.println(1);
-        pf.setLocation(e.getPoint());
-        drawPanel.repaint();
-     }
-
-    public void mouseMoved(MouseEvent e) { }
-    
 }

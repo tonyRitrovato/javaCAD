@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class DrawPanel extends JPanel implements MouseWheelListener, MouseListener, MouseMotionListener {
+public class DrawPanel extends JPanel implements MouseWheelListener, MouseMotionListener, MouseListener {
 
     public int ALTEZZA = 660;
     public int LARGHEZZA = 1280;
@@ -18,8 +18,8 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseListen
         setBackground(new Color(255,255,255));
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
         addMouseWheelListener(this);
-        addMouseListener(this);
         addMouseMotionListener(this);
+        addMouseListener(this);
      }
 
      public void paintComponent(Graphics g) {
@@ -33,12 +33,35 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseListen
             for(int i = 0; i < getHeight() + zoomIndex ; i += (20 * zoomFactor))
                 g.drawLine(0, i, (getWidth() + zoomIndex), i);
         }
-        if(startDraw == true)
-            for(Draw d : disegni) {
+        if(startDraw == true) {
+            for(Draw d : disegni)
                 d.paintComponent(g);
-                addMouseMotionListener(d);
-            }
+        }
      }
+
+     public void mouseDragged(MouseEvent e) {
+        
+       disegni.get(disegni.size() - 1).setPunto2(e.getPoint());
+        repaint();
+      }
+
+     public void mouseMoved(MouseEvent e) { }
+ 
+     public void mouseClicked(MouseEvent e) { }
+ 
+     public void mousePressed(MouseEvent e) {
+        startDraw = true;
+        Draw d = new Draw(Color.BLACK, new BasicStroke(5), e.getPoint());
+        disegni.add(d);
+      }
+ 
+     public void mouseReleased(MouseEvent e) {
+        disegni.get(disegni.size() - 1).setPunto2(e.getPoint());
+      }
+ 
+     public void mouseEntered(MouseEvent e) { }
+ 
+     public void mouseExited(MouseEvent e) { }
 
      public void mouseWheelMoved(MouseWheelEvent e) {
         int rotazione = e.getWheelRotation();
@@ -47,28 +70,6 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseListen
         else
             zoomOut();
      }
-
-    public void mouseClicked(MouseEvent e) {
-        startDraw = true;
-        System.out.println(3);
-        Draw d = new Draw(e.getPoint(), this);
-        disegni.add(d);
-        repaint();
-     }
-
-    public void mouseDragged(MouseEvent e) {
-    
-     }
-
-    public void mouseMoved(MouseEvent e) { }
-
-    public void mousePressed(MouseEvent e) { }
-
-    public void mouseReleased(MouseEvent e) { }
-
-    public void mouseEntered(MouseEvent e) { }
-
-    public void mouseExited(MouseEvent e) { }
 
     public boolean getGriglia() {
         return griglia;
