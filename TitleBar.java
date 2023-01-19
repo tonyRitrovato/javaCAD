@@ -8,6 +8,7 @@ public class TitleBar extends JPanel implements MouseMotionListener{
     
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 1280;
+    private Point posizione = new Point(0,0);
     private JFrame riferimento;
 
     public TitleBar(JFrame riferimento) {
@@ -27,19 +28,13 @@ public class TitleBar extends JPanel implements MouseMotionListener{
     }
 
     public void mouseDragged(MouseEvent e) {
-        Point posizioneNelloSchermo = e.getLocationOnScreen();
-        riferimento.setLocation(posizioneNelloSchermo.x , posizioneNelloSchermo.y);
+        if (posizione != null)
+        {
+            Point posizioneNelloSchermo = e.getLocationOnScreen();
+            riferimento.setLocation(posizioneNelloSchermo.x - (int)posizione.getX() , posizioneNelloSchermo.y -(int)posizione.getY());   
+        }
+        posizione = new Point(e.getX(), e.getY());
      }
-
-    public void mouseClicked(MouseEvent e) { }
-
-    public void mousePressed(MouseEvent e) { }
- 
-    public void mouseReleased(MouseEvent e) { }
- 
-    public void mouseEntered(MouseEvent e) { }
- 
-    public void mouseExited(MouseEvent e) { }
 
     public void mouseMoved(MouseEvent e) { }
 }
