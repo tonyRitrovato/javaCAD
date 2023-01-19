@@ -12,6 +12,7 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseMotion
     private double zoomFactor = 1.0;
     private int zoomIndex = 10000;
     private boolean startDraw = false;
+    private int turno;
     private ArrayList<Draw> disegni = new ArrayList<Draw>();
 
     public DrawPanel() {
@@ -39,24 +40,40 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseMotion
         }
      }
 
+     public void setTurno() {
+        this.turno = CAD.getNavBar().getTurno();
+     }
+
      public void mouseDragged(MouseEvent e) {
-        
-       disegni.get(disegni.size() - 1).setPunto2(e.getPoint());
-        repaint();
+        if(turno != 1) {
+            disegni.get(disegni.size() - 1).setPunto(e.getPoint());
+            repaint();
+        }
       }
 
-     public void mouseMoved(MouseEvent e) { }
+     public void mouseMoved(MouseEvent e) {
+        setTurno();
+      }
  
-     public void mouseClicked(MouseEvent e) { }
+     public void mouseClicked(MouseEvent e) {
+        if(turno == 1) {
+            Punto p = new Punto(Color.black, new BasicStroke(1), e.getPoint());
+            disegni.add(p);
+            repaint();
+        }
+      }
  
      public void mousePressed(MouseEvent e) {
         startDraw = true;
-        Draw d = new Draw(Color.BLACK, new BasicStroke(5), e.getPoint());
-        disegni.add(d);
+        switch(turno) {
+            case 2: Line l = new Line(Color.black, new BasicStroke(1), e.getPoint()); disegni.add(l); break;
+        }
       }
  
      public void mouseReleased(MouseEvent e) {
-        disegni.get(disegni.size() - 1).setPunto2(e.getPoint());
+        if(turno != 1) {
+            disegni.get(disegni.size() - 1).setPunto(e.getPoint());
+        }
       }
  
      public void mouseEntered(MouseEvent e) { }

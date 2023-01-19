@@ -6,7 +6,7 @@ public class CAD extends JFrame{
     private int ALTEZZA = 720;
     private int LARGHEZZA = 1280;
     private TitleBar t = new TitleBar(this);
-    private NavBar n = new NavBar();
+    private static NavBar n = new NavBar();
     private DrawPanel d = new DrawPanel();
 
     public static void main(String args[]) {
@@ -43,7 +43,7 @@ public class CAD extends JFrame{
         return d;
     }
 
-    public NavBar getNavBar() {
+    public static NavBar getNavBar() {
         return n;
     }
 }
