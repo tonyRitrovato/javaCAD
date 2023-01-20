@@ -12,7 +12,7 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseMotion
     private double zoomFactor = 1.0;
     private int zoomIndex = 10000;
     private boolean startDraw = false;
-    private int turno;
+    private int turno = -3;
     private ArrayList<Draw> disegni = new ArrayList<Draw>();
 
     public DrawPanel() {
@@ -45,7 +45,7 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseMotion
      }
 
      public void mouseDragged(MouseEvent e) {
-        if(turno != 1) {
+        if(turno > 1) {
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
             repaint();
         }
@@ -67,11 +67,13 @@ public class DrawPanel extends JPanel implements MouseWheelListener, MouseMotion
         startDraw = true;
         switch(turno) {
             case 2: Line l = new Line(Color.black, new BasicStroke(1), e.getPoint()); disegni.add(l); break;
+            case 3: Rectangle r = new Rectangle(Color.black, new BasicStroke(1), e.getPoint()); disegni.add(r); break;
+            case 5: Oval d = new Oval(Color.black, new BasicStroke(1), e.getPoint()); disegni.add(d); break;
         }
       }
  
      public void mouseReleased(MouseEvent e) {
-        if(turno != 1) {
+        if(turno > 1) {
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
         }
       }
