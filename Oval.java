@@ -18,8 +18,6 @@ public class Oval extends Draw {
     public void paintComponent(Graphics g) {
         int diffx = (int)(raggio.getX() - centro.getX() / 2);
         int diffy = (int)(raggio.getY() - centro.getY() / 2);
-        System.out.println(diffx);
-        System.out.println(diffy);
         super.paintComponent(g);
         g.drawOval((int)centro.getX(), (int)centro.getY(), diffx * 2, diffy * 2);
     }

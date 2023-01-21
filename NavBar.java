@@ -8,6 +8,7 @@ public class NavBar extends JPanel {
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 1280;;
     private FileMenu file = new FileMenu();
+    private Color colore;
     private DrawButtonBar d = new DrawButtonBar();
     
     public NavBar() { 
@@ -26,6 +27,10 @@ public class NavBar extends JPanel {
        add(d, c);
         c.weightx = 1000;
         add(padding, c);
+    }
+
+    public Color getColore() {
+        return d.getColore();
     }
 
     public int getTurno() {

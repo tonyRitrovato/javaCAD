@@ -11,6 +11,7 @@ public class DrawButton extends JButton implements ActionListener {
     private Color COLORE = new Color(22, 33, 62);
     private Color ATTIVO = new Color(12, 23, 52);
     private boolean stato = false;
+    protected Color colore = new Color(255,255,255);
     private DrawButton gruppo[] = new DrawButton[8];
     private DrawButtonBar bar;
 
@@ -41,6 +42,8 @@ public class DrawButton extends JButton implements ActionListener {
     public void setStato(boolean stato) {
         this.stato = stato;
     } 
+
+    public Color getColore() {return colore;}
 
     public boolean getStato() {
         return stato;

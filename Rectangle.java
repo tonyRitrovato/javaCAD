@@ -16,10 +16,10 @@ public class Rectangle extends Draw{
     }
 
     public void paintComponent(Graphics g) {
-        int width = (int)(punto2.getX() - punto1.getX());
-        int height = (int)(punto2.getY() - punto1.getY());
+        int xcoordinates[] = {(int)punto1.getX(), (int)punto2.getX(), (int)punto2.getX(), (int)punto1.getX()};
+        int ycoordinates[] = {(int)punto2.getY(),  (int)punto2.getY(), (int)punto1.getY(), (int)punto1.getY()};
         super.paintComponent(g);
-        g.drawRect((int)punto1.getX(),(int)punto1.getY(),width, height);
+        Polygon p = new Polygon(xcoordinates, ycoordinates, 4);
+        g.drawPolygon(p);
     }
-    
 }

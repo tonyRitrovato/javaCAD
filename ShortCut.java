@@ -11,7 +11,7 @@ public class ShortCut implements KeyListener{
     }
 
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() == KeyEvent.VK_1)
+        if(e.getKeyChar() == KeyEvent.VK_G)
             gestioneGriglia();
       }
 

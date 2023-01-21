@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class CircleButton extends DrawButton {
 
-    public int TURN = 5;
+    public int TURN = 4;
     
     public CircleButton() {
         super();
