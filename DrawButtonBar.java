@@ -34,6 +34,10 @@ public class DrawButtonBar extends JPanel {
         return drawButton[6].getColore();
     }
 
+    public boolean getFill() {
+        return drawButton[5].getFill();
+    }
+
     public int getTurno() {
         return turno;
     }

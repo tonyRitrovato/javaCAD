@@ -33,6 +33,10 @@ public class NavBar extends JPanel {
         return d.getColore();
     }
 
+    public boolean getFill() {
+        return d.getFill();
+    }
+
     public int getTurno() {
         return d.getTurno();
     }

@@ -11,7 +11,9 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     private boolean griglia = true;
     private boolean startDraw = false;
     private int turno = -3;
+    private boolean fill = false;
     private Color colore = CAD.getNavBar().getColore();
+
     private ArrayList<Draw> disegni = new ArrayList<Draw>();
 
     public DrawPanel() {
@@ -44,6 +46,10 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         this.colore = CAD.getNavBar().getColore();
      }
 
+     public void setFill() {
+        this.fill = CAD.getNavBar().getFill();
+     }
+
      public void mouseDragged(MouseEvent e) {
         if(turno > 1) {
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
@@ -54,6 +60,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
      public void mouseMoved(MouseEvent e) {
         setTurno();
         setColore();
+        setFill();
       }
  
      public void mouseClicked(MouseEvent e) {
@@ -68,8 +75,8 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         startDraw = true;
         switch(turno) {
             case 2: Line l = new Line(colore, new BasicStroke(1), e.getPoint()); disegni.add(l); break;
-            case 3: Rectangle r = new Rectangle(colore, new BasicStroke(1), e.getPoint()); disegni.add(r); break;
-            case 4: Oval d = new Oval(colore, new BasicStroke(1), e.getPoint()); disegni.add(d); break;
+            case 3: Rectangle r = new Rectangle(colore, new BasicStroke(1), e.getPoint(), fill); disegni.add(r); break;
+            case 4: Oval d = new Oval(colore, new BasicStroke(1), e.getPoint(), fill); disegni.add(d); break;
         }
       }
  

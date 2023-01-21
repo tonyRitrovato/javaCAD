@@ -17,10 +17,6 @@ public class ColorButton extends DrawButton implements ActionListener{
         this.colore = colore;
     }
 
-    public Color getColore(Color colore) {
-        return colore;
-    }
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(colore);

@@ -1,10 +1,12 @@
 
 
 import java.awt.*;
+import java.awt.event.*;
 
-public class Fill extends DrawButton {
+public class Fill extends DrawButton implements ActionListener{
 
     public int TURN = -1;
+    private boolean fill;
 
     public Fill() {
         super();
@@ -14,5 +16,10 @@ public class Fill extends DrawButton {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.fillOval(5, 5, 20, 20);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        fill = (fill == true) ? false : true;
+        super.fill = fill;
     }
 }
