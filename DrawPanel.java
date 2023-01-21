@@ -11,6 +11,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     private boolean griglia = true;
     private boolean startDraw = false;
     private int turno = -3;
+    private int thick = 1;
     private boolean fill = false;
     private Color colore = CAD.getNavBar().getColore();
 
@@ -50,6 +51,10 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         this.fill = CAD.getNavBar().getFill();
      }
 
+     public void setThick() {
+        this.thick = CAD.getNavBar().getThick();
+     }
+
      public void mouseDragged(MouseEvent e) {
         if(turno > 1) {
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
@@ -61,11 +66,12 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         setTurno();
         setColore();
         setFill();
+        setThick();
       }
  
      public void mouseClicked(MouseEvent e) {
         if(turno == 1) {
-            Punto p = new Punto(colore, new BasicStroke(1), e.getPoint());
+            Punto p = new Punto(colore, new BasicStroke(thick), e.getPoint());
             disegni.add(p);
             repaint();
         }
@@ -74,9 +80,9 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
      public void mousePressed(MouseEvent e) {
         startDraw = true;
         switch(turno) {
-            case 2: Line l = new Line(colore, new BasicStroke(1), e.getPoint()); disegni.add(l); break;
-            case 3: Rectangle r = new Rectangle(colore, new BasicStroke(1), e.getPoint(), fill); disegni.add(r); break;
-            case 4: Oval d = new Oval(colore, new BasicStroke(1), e.getPoint(), fill); disegni.add(d); break;
+            case 2: Line l = new Line(colore, new BasicStroke(thick), e.getPoint()); disegni.add(l); break;
+            case 3: Rectangle r = new Rectangle(colore, new BasicStroke(thick), e.getPoint(), fill); disegni.add(r); break;
+            case 4: Oval d = new Oval(colore, new BasicStroke(thick), e.getPoint(), fill); disegni.add(d); break;
         }
       }
  

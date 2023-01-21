@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class DrawButtonBar extends JPanel {
     
-    private DrawButton drawButton[] = new DrawButton[8];
+    private DrawButton drawButton[] = new DrawButton[7];
     private int turno;
     
     public DrawButtonBar() {
@@ -21,7 +21,6 @@ public class DrawButtonBar extends JPanel {
         drawButton[4] = new CircleButton();
         drawButton[5] = new Fill();
         drawButton[6] = new ColorButton();
-        drawButton[7] = new ThickButton();
 
         for(DrawButton d : drawButton) {
             d.setGruppo(drawButton);

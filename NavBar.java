@@ -10,6 +10,8 @@ public class NavBar extends JPanel {
     private FileMenu file = new FileMenu();
     private Color colore;
     private DrawButtonBar d = new DrawButtonBar();
+    private Thick t = new Thick();
+    private int thick = 1;
     
     public NavBar() { 
         setBackground(new Color(22, 33, 62));
@@ -25,6 +27,7 @@ public class NavBar extends JPanel {
         add(file, c);
        /*  */
        add(d, c);
+       add(t,c);
         c.weightx = 1000;
         add(padding, c);
     }
@@ -35,6 +38,10 @@ public class NavBar extends JPanel {
 
     public boolean getFill() {
         return d.getFill();
+    }
+
+    public int getThick() {
+        return t.getThick();
     }
 
     public int getTurno() {
