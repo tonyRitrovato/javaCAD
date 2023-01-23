@@ -1,5 +1,6 @@
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
 
     public int ALTEZZA = 660;
     public int LARGHEZZA = 1280;
-    private boolean griglia = true;
+    private boolean griglia;
     private boolean startDraw = false;
     private int turno = -3;
     Singleton s = Singleton.getInstance();
@@ -20,13 +21,15 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
         addMouseMotionListener(this);
         addMouseListener(this);
+        setFocusable(false);
      }
 
      public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        griglia = s.getGriglia();
         if(griglia == true) {
             g.setColor(new Color(225,225,225));
-             for(int i = 0; i < getWidth(); i += 20)
+            for(int i = 0; i < getWidth(); i += 20)
                 g.drawLine(i, 0, i,  (getHeight()));
             for(int i = 0; i < getHeight(); i += (20))
                 g.drawLine(0, i, (getWidth()), i);
@@ -75,11 +78,4 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
  
      public void mouseExited(MouseEvent e) { }
 
-    public boolean getGriglia() {
-        return griglia;
-     }
-
-     public void setGriglia (boolean s) {
-        griglia = s;
-     }
 }
