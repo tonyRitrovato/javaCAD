@@ -5,9 +5,6 @@ public class CAD extends JFrame{
 
     private int ALTEZZA = 720;
     private int LARGHEZZA = 1280;
-    private TitleBar t = new TitleBar(this);
-    private static NavBar n = new NavBar();
-    private DrawPanel d = new DrawPanel();
 
     public static void main(String args[]) {
          new CAD();
@@ -20,30 +17,19 @@ public class CAD extends JFrame{
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
 
-        add(t,c);
+        add(new TitleBar(this),c);
 
         c.gridy = 1;
-        add(n, c);
+        add(new NavBar(), c);
 
         c.gridy = 200;
-        add(d, c);
-        addKeyListener(new ShortCut(this));
+        add(new DrawPanel(), c);
+        addKeyListener(new ShortCut());
         setUndecorated(true);
         setLocationRelativeTo(null);
         setFocusable(true);
+        requestFocus();
         setResizable(false); 
         setVisible(true);
-    }
-
-    public TitleBar getTitleBar() {
-        return t;
-    }
-
-    public DrawPanel getDrawPanel() {
-        return d;
-    }
-
-    public static NavBar getNavBar() {
-        return n;
     }
 }

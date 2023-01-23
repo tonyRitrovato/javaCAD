@@ -16,7 +16,7 @@ public class NavBar extends JPanel {
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
         JPanel padding = new JPanel();
         padding.setBackground(new Color(22, 33, 62));
-
+        setFocusable(false);
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 1;

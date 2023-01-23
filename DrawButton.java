@@ -9,7 +9,7 @@ public class DrawButton extends JButton implements ActionListener {
     public static int LARGHEZZA = 30;
     public int TURN = 0;
     private Color COLORE = new Color(22, 33, 62);
-    private Color ATTIVO = new Color(12, 23, 52);
+    private Color ATTIVO = new Color(42, 53, 82);
     private boolean stato = false;
     private DrawButton gruppo[] = new DrawButton[8];
     private Singleton s = Singleton.getInstance();
@@ -19,6 +19,7 @@ public class DrawButton extends JButton implements ActionListener {
         setBackground(COLORE);
         setForeground(Color.WHITE);
         setBorderPainted(false);
+        setFocusable(false);
         addActionListener(this);
     }
 
@@ -38,13 +39,6 @@ public class DrawButton extends JButton implements ActionListener {
         this.stato = stato;
     } 
 
-    public boolean getStato() {
-        return stato;
-    }
-
-    public int getTurn() {
-        return TURN;
-    }
 
     public void actionPerformed(ActionEvent e) {
         if(stato == false) {
@@ -55,9 +49,8 @@ public class DrawButton extends JButton implements ActionListener {
             }
             this.stato = true;
         }
-        else {
+        else 
             this.stato = false;
-        }
         s.setTurno(TURN);
     }
 }

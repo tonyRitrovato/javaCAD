@@ -6,6 +6,7 @@ public class Singleton {
     private int turno;
     private Color colore;
     private boolean fill;
+    private boolean griglia = true;
     private int thick;
 
     private Singleton() { }
@@ -47,5 +48,13 @@ public class Singleton {
 
     public void setTurno(int turno) {
         this.turno = turno;
+    }
+
+    public boolean getGriglia() {
+        return griglia;
+    }
+
+    public void setGriglia(boolean griglia) {
+        this.griglia = griglia;
     }
 }

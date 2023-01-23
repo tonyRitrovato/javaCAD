@@ -13,11 +13,7 @@ public class ColorButton extends DrawButton implements ActionListener{
         super();
         super.TURN = this.TURN;
     }
-
-    public void setColore(Color colore) {
-        this.colore = colore;
-    }
-
+    
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(colore);

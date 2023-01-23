@@ -4,25 +4,22 @@ import java.awt.event.*;
 
 public class ShortCut implements KeyListener{
 
-    private CAD cad;
+    Singleton s = Singleton.getInstance();
 
-    public ShortCut(CAD cad) {
-        this.cad = cad;
-    }
+    public ShortCut() { }
 
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() == KeyEvent.VK_G)
+        if(e.getKeyChar() == KeyEvent.VK_G) 
             gestioneGriglia();
-      }
+     }
 
-    public void keyPressed(KeyEvent e) {  }
+    public void keyPressed(KeyEvent e) { }
 
     public void keyReleased(KeyEvent e) {  }
 
     public void gestioneGriglia() {
-        boolean griglia = cad.getDrawPanel().getGriglia();
+        boolean griglia = s.getGriglia();
         griglia = (griglia == true) ? false : true;
-         cad.getDrawPanel().setGriglia(griglia);
-         cad.getDrawPanel().repaint();
+        s.setGriglia(griglia);
      }
 }

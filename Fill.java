@@ -7,6 +7,7 @@ public class Fill extends DrawButton implements ActionListener{
 
     public int TURN = -1;
     private boolean fill;
+    Singleton s = Singleton.getInstance();
 
     public Fill() {
         super();
@@ -20,6 +21,6 @@ public class Fill extends DrawButton implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         fill = (fill == true) ? false : true;
-        super.fill = fill;
+        s.setFill(fill);
     }
 }

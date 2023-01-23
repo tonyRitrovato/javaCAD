@@ -8,7 +8,6 @@ public class TitleBar extends JPanel implements MouseMotionListener {
     
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 1280;
-    private Point posizione;
     private JFrame riferimento;
 
     public TitleBar(JFrame riferimento) {
@@ -16,6 +15,7 @@ public class TitleBar extends JPanel implements MouseMotionListener {
         addMouseMotionListener(this);
         setBackground(new Color(15, 52, 96));
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
+        setFocusable(false);
         ExitButton exit = new ExitButton();
         IconButton icon = new IconButton(riferimento);
         setLayout(new GridBagLayout());
