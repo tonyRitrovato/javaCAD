@@ -8,10 +8,8 @@ public class NavBar extends JPanel {
     public static int ALTEZZA = 30;
     public static int LARGHEZZA = 1280;;
     private FileMenu file = new FileMenu();
-    private Color colore;
-    private DrawButtonBar d = new DrawButtonBar();
+    private DrawButton[] d = new DrawButton[7];
     private Thick t = new Thick();
-    private int thick = 1;
     
     public NavBar() { 
         setBackground(new Color(22, 33, 62));
@@ -26,25 +24,23 @@ public class NavBar extends JPanel {
         c.anchor = GridBagConstraints.WEST;
         add(file, c);
        /*  */
-       add(d, c);
+       initDrawButton();
+       for(DrawButton button : d) {
+        add(button,c);
+        button.setGruppo(d);
+       }
        add(t,c);
         c.weightx = 1000;
         add(padding, c);
     }
 
-    public Color getColore() {
-        return d.getColore();
-    }
-
-    public boolean getFill() {
-        return d.getFill();
-    }
-
-    public int getThick() {
-        return t.getThick();
-    }
-
-    public int getTurno() {
-        return d.getTurno();
+    private void initDrawButton() {
+       d[0] = new Move();
+       d[1] = new PointButton();
+       d[2] = new LineButton();
+       d[3] = new RectangleButton();
+       d[4] = new CircleButton();
+       d[5] = new Fill();
+       d[6] = new ColorButton();
     }
 }

@@ -11,9 +11,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     private boolean griglia = true;
     private boolean startDraw = false;
     private int turno = -3;
-    private int thick = 1;
-    private boolean fill = false;
-    private Color colore = CAD.getNavBar().getColore();
+    Singleton s = Singleton.getInstance();
 
     private ArrayList<Draw> disegni = new ArrayList<Draw>();
 
@@ -39,21 +37,6 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         }
      }
 
-     public void setTurno() {
-        this.turno = CAD.getNavBar().getTurno();
-     }
-
-     public void setColore() {
-        this.colore = CAD.getNavBar().getColore();
-     }
-
-     public void setFill() {
-        this.fill = CAD.getNavBar().getFill();
-     }
-
-     public void setThick() {
-        this.thick = CAD.getNavBar().getThick();
-     }
 
      public void mouseDragged(MouseEvent e) {
         if(turno > 1) {
@@ -62,27 +45,23 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
         }
       }
 
-     public void mouseMoved(MouseEvent e) {
-        setTurno();
-        setColore();
-        setFill();
-        setThick();
-      }
+     public void mouseMoved(MouseEvent e) { }
  
      public void mouseClicked(MouseEvent e) {
         if(turno == 1) {
-            Punto p = new Punto(colore, new BasicStroke(thick), e.getPoint());
+            Punto p = new Punto(s.getColore(), new BasicStroke(s.getThick()), e.getPoint());
             disegni.add(p);
             repaint();
         }
       }
  
      public void mousePressed(MouseEvent e) {
+         turno = s.getTurno();
         startDraw = true;
         switch(turno) {
-            case 2: Line l = new Line(colore, new BasicStroke(thick), e.getPoint()); disegni.add(l); break;
-            case 3: Rectangle r = new Rectangle(colore, new BasicStroke(thick), e.getPoint(), fill); disegni.add(r); break;
-            case 4: Oval d = new Oval(colore, new BasicStroke(thick), e.getPoint(), fill); disegni.add(d); break;
+            case 2: Line l = new Line(s.getColore(), new BasicStroke(s.getThick()), e.getPoint()); disegni.add(l); break;
+            case 3: Rectangle r = new Rectangle(s.getColore(), new BasicStroke(s.getThick()), e.getPoint(), s.getFill()); disegni.add(r); break;
+            case 4: Oval d = new Oval(s.getColore(), new BasicStroke(s.getThick()), e.getPoint(), s.getFill()); disegni.add(d); break;
         }
       }
  

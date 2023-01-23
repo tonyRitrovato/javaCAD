@@ -6,6 +6,7 @@ import javax.swing.event.*;
 public class Thick extends JSlider implements ChangeListener{
 
     private int thick;
+    Singleton s = Singleton.getInstance();
 
     public Thick() {
         super();
@@ -19,11 +20,9 @@ public class Thick extends JSlider implements ChangeListener{
         addChangeListener(this);
     }
 
-    public int getThick() {
-        return thick;
-    }
 
     public void stateChanged(ChangeEvent e) { 
         this.thick = getValue();
+        s.setThick(thick);
      }
 }
