@@ -17,7 +17,7 @@ public class ShortCut implements KeyListener{
 
     public void keyReleased(KeyEvent e) {  }
 
-    public void gestioneGriglia() {
+    private void gestioneGriglia() {
         boolean griglia = s.getGriglia();
         griglia = (griglia == true) ? false : true;
         s.setGriglia(griglia);

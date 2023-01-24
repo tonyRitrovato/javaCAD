@@ -12,7 +12,8 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     private boolean griglia;
     private boolean startDraw = false;
     private int turno = -3;
-    Singleton s = Singleton.getInstance();
+    private Singleton s = Singleton.getInstance();
+    private Selection sel;
 
     private ArrayList<Draw> disegni = new ArrayList<Draw>();
 
@@ -43,7 +44,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
 
 
      public void mouseDragged(MouseEvent e) {
-        if(turno > 1) {
+        if(turno > -1) {
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
             repaint();
         }
@@ -61,8 +62,9 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
  
      public void mousePressed(MouseEvent e) {
          turno = s.getTurno();
-        startDraw = true;
-        switch(turno) {
+         startDraw = true;
+         switch(turno) {
+            case 0: sel = new Selection(new Color(105,255,171), new BasicStroke(1), e.getPoint());  disegni.add(sel); break;
             case 2: Line l = new Line(s.getColore(), new BasicStroke(s.getThick()), e.getPoint()); disegni.add(l); break;
             case 3: Rectangle r = new Rectangle(s.getColore(), new BasicStroke(s.getThick()), e.getPoint(), s.getFill()); disegni.add(r); break;
             case 4: Oval d = new Oval(s.getColore(), new BasicStroke(s.getThick()), e.getPoint(), s.getFill()); disegni.add(d); break;
@@ -70,9 +72,11 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
       }
  
      public void mouseReleased(MouseEvent e) {
-        if(turno > 1) {
+        if(turno > 1) 
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
-        }
+        if(turno == 0) 
+           disegni.remove(disegni.size() - 1);
+        repaint();
       }
  
      public void mouseEntered(MouseEvent e) { }
