@@ -8,6 +8,7 @@ public class Singleton {
     private boolean fill;
     private boolean griglia = true;
     private int thick;
+    private DrawPanel panel;
 
     private Singleton() { }
 
@@ -18,6 +19,14 @@ public class Singleton {
         return instance;
     }
 
+    public DrawPanel getPanel() {
+        return panel;
+    }
+
+    public void setPanel(DrawPanel panel) {
+        this.panel = panel;
+    }
+    
     public int getThick() {
         return thick;
     }

@@ -19,6 +19,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     public DrawPanel() {
         setBackground(new Color(255,255,255));
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
+        s.setPanel(this);
         addMouseMotionListener(this);
         addMouseListener(this);
         setFocusable(false);

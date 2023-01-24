@@ -17,6 +17,7 @@ public class Thick extends JSlider implements ChangeListener{
         setMajorTickSpacing(10);
         setBackground(new Color(22,33,62));
         setForeground(new Color(255,255,255));
+        setFocusable(false);
         addChangeListener(this);
     }
 

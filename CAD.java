@@ -28,7 +28,6 @@ public class CAD extends JFrame{
         setUndecorated(true);
         setLocationRelativeTo(null);
         setFocusable(true);
-        requestFocus();
         setResizable(false); 
         setVisible(true);
     }

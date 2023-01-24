@@ -21,5 +21,6 @@ public class ShortCut implements KeyListener{
         boolean griglia = s.getGriglia();
         griglia = (griglia == true) ? false : true;
         s.setGriglia(griglia);
+        s.getPanel().repaint();
      }
 }
