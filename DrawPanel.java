@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class DrawPanel extends JPanel implements MouseMotionListener, MouseListener {
 
-    public int ALTEZZA = 660;
-    public int LARGHEZZA = 1280;
+    private int ALTEZZA = 660;
+    private int LARGHEZZA = 1280;
     private boolean griglia;
     private boolean startDraw = false;
     private int turno = -3;
@@ -46,6 +46,11 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
      public void mouseDragged(MouseEvent e) {
         if(turno > -1) {
             disegni.get(disegni.size() - 1).setPunto(e.getPoint());
+            if(turno == 0) {
+                for(int i = 0; i < disegni.size() - 1; i++)
+                    if(disegni.get(i).intersects(sel)) 
+                        disegni.get(i).setColore(new Color(25,25,25));
+            }
             repaint();
         }
       }
