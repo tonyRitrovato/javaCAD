@@ -3,11 +3,11 @@ import java.awt.*;
 
 public class RectangleButton extends DrawButton {
 
-    public int TURN = 3;
+    public int turno = 3;
 
     public RectangleButton() {
         super();
-        super.TURN = this.TURN;
+        super.turno = this.turno;
     }
 
     public void paintComponent(Graphics g) {

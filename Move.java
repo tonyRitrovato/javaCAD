@@ -4,11 +4,11 @@ import java.awt.*;
 
 public class Move extends DrawButton {
 
-    public int TURN = 0;
+    private int turno = 0;
 
     public Move() {
         super();
-        super.TURN = this.TURN;
+        super.turno = this.turno;
     }
 
     public void paintComponent(Graphics g) {

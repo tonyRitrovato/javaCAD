@@ -5,13 +5,13 @@ import java.awt.event.*;
 
 public class Fill extends DrawButton implements ActionListener{
 
-    public int TURN = -1;
+    private int turno = -1;
     private boolean fill;
     Singleton s = Singleton.getInstance();
 
     public Fill() {
         super();
-        super.TURN = this.TURN;
+        super.turno = this.turno;
     }
 
     public void paintComponent(Graphics g) {

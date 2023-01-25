@@ -1,14 +1,22 @@
 import java.awt.*;
 
-public class Selection extends Draw{
+public class Selection extends Draw {
 
     private Point punto1;
     private Point punto2;
 
     public Selection(Color colore, BasicStroke thick, Point p) {
         super(colore, thick);
-        punto1 = p;
+        this.punto1 = p;
         
+    }
+
+    public Point getPunto1() {
+        return punto1;
+    }
+
+    public Point getPunto2() {
+        return punto2;
     }
 
     public void setPunto(Point p) {
@@ -24,5 +32,7 @@ public class Selection extends Draw{
         Polygon p = new Polygon(xcoordinates, ycoordinates, 4);
         g.fillPolygon(p);
        }
+
+    public boolean intersects(Selection d) { return false;}
     
 }

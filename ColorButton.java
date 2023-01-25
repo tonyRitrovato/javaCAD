@@ -5,13 +5,13 @@ import javax.swing.*;
 
 public class ColorButton extends DrawButton implements ActionListener{
 
-    public int TURN = -1;
+    private int turno = -1;
     private Color colore;
     private Singleton s = Singleton.getInstance();
 
     public ColorButton() {
         super();
-        super.TURN = this.TURN;
+        super.turno = this.turno;
     }
     
     public void paintComponent(Graphics g) {

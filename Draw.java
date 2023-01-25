@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Draw {
+public  abstract class Draw {
 
     private Color colore;
     private BasicStroke thick;
@@ -10,11 +10,17 @@ public class Draw {
         this.colore = colore;
     }
 
-    public void setPunto(Point p) { }
+    public void setColore(Color colore) {
+        this.colore = colore;
+    }
 
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g.setColor(colore);
         g2d.setStroke(thick);
     }
+
+    public abstract void setPunto(Point p);
+
+    public abstract boolean intersects(Selection sel);
 }

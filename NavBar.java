@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class NavBar extends JPanel {
 
-    public static int ALTEZZA = 30;
-    public static int LARGHEZZA = 1280;;
+    private int ALTEZZA = 30;
+    private int LARGHEZZA = 1280;;
     private FileMenu file = new FileMenu();
     private DrawButton[] d = new DrawButton[7];
     private Thick t = new Thick();

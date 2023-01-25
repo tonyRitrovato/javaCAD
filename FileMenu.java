@@ -7,8 +7,8 @@ import java.awt.event.*;
 
 public class FileMenu extends JButton implements MouseListener{
     
-    public static int ALTEZZA = 30;
-    public static int LARGHEZZA = 55;
+    private int ALTEZZA = 30;
+    private int LARGHEZZA = 55;
     private Font f = new Font("Calibri", Font.PLAIN, 14);
     private Color COLORE = new Color(22, 33, 62);
     private Color HOVER = new Color(32, 43, 72);

@@ -5,9 +5,9 @@ import java.awt.event.*;
 
 public class DrawButton extends JButton implements ActionListener {
     
-    public static int ALTEZZA = 30;
-    public static int LARGHEZZA = 30;
-    public int TURN = 0;
+    private int ALTEZZA = 30;
+    private int LARGHEZZA = 30;
+    protected int turno;
     private Color COLORE = new Color(22, 33, 62);
     private Color ATTIVO = new Color(42, 53, 82);
     private boolean stato = false;
@@ -43,7 +43,7 @@ public class DrawButton extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(stato == false) {
             for(DrawButton g : gruppo) {
-                if(TURN >= 0 )
+                if(turno >= 0 )
                     g.setStato(false);
                 g.repaint();
             }
@@ -51,6 +51,6 @@ public class DrawButton extends JButton implements ActionListener {
         }
         else 
             this.stato = false;
-        s.setTurno(TURN);
+        s.setTurno(turno);
     }
 }
