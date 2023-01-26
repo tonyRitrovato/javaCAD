@@ -49,7 +49,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
             if(turno == 0) {
                 for(int i = 0; i < disegni.size() - 1; i++)
                     if(disegni.get(i).intersects(sel)) 
-                        disegni.get(i).setColore(new Color(25,25,25));
+                        disegni.remove(i);
             }
             repaint();
         }
