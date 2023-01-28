@@ -28,7 +28,6 @@ public class ColorButton extends DrawButton implements ActionListener{
         JColorChooser colorChooser = new JColorChooser();
         colore = colorChooser.showDialog(null, "scegli un colore", colore);
         s.setColore(colore);
-        repaint();
+        repaint();  
     }
-    
 }
