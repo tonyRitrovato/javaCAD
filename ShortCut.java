@@ -1,5 +1,6 @@
 
 import java.awt.event.*;
+import Singleton.Singleton;
 
 
 public class ShortCut implements KeyListener{
@@ -9,13 +10,13 @@ public class ShortCut implements KeyListener{
     public ShortCut() { }
 
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() == KeyEvent.VK_G) 
+        if(e.getKeyChar() == 'G' | e.getKeyChar() == 'g') 
             gestioneGriglia();
      }
 
     public void keyPressed(KeyEvent e) { }
 
-    public void keyReleased(KeyEvent e) {  }
+    public void keyReleased(KeyEvent e) { }
 
     private void gestioneGriglia() {
         boolean griglia = s.getGriglia();

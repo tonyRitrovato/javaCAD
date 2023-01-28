@@ -1,5 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+import TitleBar.TitleBar;
+import NavBar.NavBar;
+import DrawPanel.DrawPanel;
 
 public class CAD extends JFrame{
 
@@ -12,7 +15,6 @@ public class CAD extends JFrame{
 
     public CAD() {
         setSize (LARGHEZZA, ALTEZZA);
-        //palette colori: 1A1A2E (26, 26, 46) - 16213E (22, 33, 62) - 0F3460 (15, 52, 96) - E94560 (233, 69, 96)
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
