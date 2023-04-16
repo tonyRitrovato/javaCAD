@@ -7,7 +7,7 @@ public class Selection extends Draw {
     private Point punto1;
     private Point punto2;
 
-    public Selection(Color colore, BasicStroke thick, Point p) {
+    public Selection(Color colore, int thick, Point p) {
         super(colore, thick);
         this.punto1 = p;
         

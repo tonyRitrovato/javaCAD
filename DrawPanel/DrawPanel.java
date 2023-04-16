@@ -16,17 +16,18 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
     private int ALTEZZA = 660;
     private int LARGHEZZA = 1280;
     private boolean griglia;
-    private boolean startDraw = false;
+    //private boolean startDraw = false;
     private int turno = -3;
     private Singleton s = Singleton.getInstance();
     private Selection sel;
-
     private ArrayList<Draw> disegni = new ArrayList<Draw>();
 
     public DrawPanel() {
         setBackground(new Color(255,255,255));
         setPreferredSize(new Dimension(LARGHEZZA, ALTEZZA));
         s.setPanel(this);
+        s.setDraw(disegni);
+        s.setStartDraw(false);
         addMouseMotionListener(this);
         addMouseListener(this);
         setFocusable(false);
@@ -34,6 +35,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
 
      public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        disegni = s.getDraw();
         griglia = s.getGriglia();
         if(griglia == true) {
             g.setColor(new Color(225,225,225));
@@ -42,9 +44,10 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
             for(int i = 0; i < getHeight(); i += (20))
                 g.drawLine(0, i, (getWidth()), i);
         }
-        if(startDraw == true) {
+        if(s.getStartDraw() == true) {
             for(Draw d : disegni)
                 d.paintComponent(g);
+            s.setDraw(disegni);
         }
      }
 
@@ -65,7 +68,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
  
      public void mouseClicked(MouseEvent e) {
         if(turno == 1) {
-            Punto p = new Punto(s.getColore(), new BasicStroke(s.getThick()), e.getPoint());
+            Punto p = new Punto(s.getColore(), s.getThick(), e.getPoint());
             disegni.add(p);
             repaint();
         }
@@ -73,12 +76,12 @@ public class DrawPanel extends JPanel implements MouseMotionListener, MouseListe
  
      public void mousePressed(MouseEvent e) {
          turno = s.getTurno();
-         startDraw = true;
+         s.setStartDraw(true);
          switch(turno) {
-            case 0: sel = new Selection(new Color(105,255,171), new BasicStroke(1), e.getPoint());  disegni.add(sel); break;
-            case 2: Line l = new Line(s.getColore(), new BasicStroke(s.getThick()), e.getPoint()); disegni.add(l); break;
-            case 3: Rectangle r = new Rectangle(s.getColore(), new BasicStroke(s.getThick()), e.getPoint(), s.getFill()); disegni.add(r); break;
-            case 4: Oval d = new Oval(s.getColore(), new BasicStroke(s.getThick()), e.getPoint(), s.getFill()); disegni.add(d); break;
+            case 0: sel = new Selection(new Color(105,255,171), 1, e.getPoint());  disegni.add(sel); break;
+            case 2: Line l = new Line(s.getColore(), s.getThick(), e.getPoint()); disegni.add(l); break;
+            case 3: Rectangle r = new Rectangle(s.getColore(), s.getThick(), e.getPoint(), s.getFill()); disegni.add(r); break;
+            case 4: Oval d = new Oval(s.getColore(), s.getThick(), e.getPoint(), s.getFill()); disegni.add(d); break;
         }
       }
  

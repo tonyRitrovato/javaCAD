@@ -1,13 +1,14 @@
 package Draw;
 import java.awt.*;
 import  java.awt.geom.*;
+import java.io.Serializable;
 
-public class Line extends Draw{
+public class Line extends Draw {
 
     private Point punto1;
     private Point punto2;
 
-    public Line(Color colore, BasicStroke thick, Point punto1) {
+    public Line(Color colore, int thick, Point punto1) {
         super(colore, thick);
         this.punto1 = punto1;
     }

@@ -16,8 +16,8 @@ public class FileMenu extends JButton implements MouseListener{
     private Color HOVER = new Color(32, 43, 72);
 
     private JPopupMenu menu = new JPopupMenu();
-    private FileMenuOption Salva = new FileMenuOption();
-    private FileMenuOption Carica = new FileMenuOption();
+    private FileMenuOption Salva = new SaveFile();
+    private FileMenuOption Carica = new LoadFile();
 
     public FileMenu() {
 

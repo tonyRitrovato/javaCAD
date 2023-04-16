@@ -5,7 +5,7 @@ public class Punto extends Draw{
 
     private Point punto;
 
-    public Punto(Color colore, BasicStroke thick, Point punto) {
+    public Punto(Color colore, int thick, Point punto) {
         super(colore, thick);
         this.punto = punto;
     }

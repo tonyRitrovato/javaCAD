@@ -8,7 +8,7 @@ public class Rectangle extends Draw{
     private Point punto2;
     private boolean fill = false;
 
-    public Rectangle(Color colore, BasicStroke thick, Point p, boolean fill) {
+    public Rectangle(Color colore, int thick, Point p, boolean fill) {
         super(colore, thick);
         punto1 = p;
         this.fill = fill;

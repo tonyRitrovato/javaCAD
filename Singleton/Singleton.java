@@ -3,6 +3,8 @@ package Singleton;
 import java.awt.*;
 
 import DrawPanel.DrawPanel;
+import Draw.Draw;
+import java.util.ArrayList;
 
 public class Singleton {
 
@@ -13,6 +15,8 @@ public class Singleton {
     private boolean griglia = true;
     private int thick;
     private DrawPanel panel;
+    private ArrayList<Draw> draw;
+    private boolean startDraw;
 
     private Singleton() { }
 
@@ -21,6 +25,22 @@ public class Singleton {
             instance = new Singleton();
         }
         return instance;
+    }
+
+    public ArrayList<Draw> getDraw() {
+        return draw;
+    }
+
+    public void setDraw(ArrayList<Draw> draw) {
+        this.draw = draw;
+    }
+
+    public boolean getStartDraw() {
+        return startDraw;
+    }
+
+    public void setStartDraw(boolean startDraw) {
+        this.startDraw = startDraw;
     }
 
     public DrawPanel getPanel() {
